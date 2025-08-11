@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateComparison.Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateComparison.Infrastructure", "ExchangeRateComparison.Infrastructure\ExchangeRateComparison.Infrastructure.csproj", "{A41EF678-015D-4877-8BDE-2B3ECD6AF0BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockApi1.JsonProvider", "MockApi1.JsonProvider\MockApi1.JsonProvider.csproj", "{D59C66BE-5BE6-404C-8394-7273A81252F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{A41EF678-015D-4877-8BDE-2B3ECD6AF0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A41EF678-015D-4877-8BDE-2B3ECD6AF0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A41EF678-015D-4877-8BDE-2B3ECD6AF0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
