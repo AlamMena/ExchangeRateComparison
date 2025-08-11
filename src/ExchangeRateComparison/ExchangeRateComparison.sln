@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateComparison.Infr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockApi1.JsonProvider", "MockApi1.JsonProvider\MockApi1.JsonProvider.csproj", "{D59C66BE-5BE6-404C-8394-7273A81252F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockApi2.XmlProvider", "MockApi2.XmlProvider\MockApi2.XmlProvider.csproj", "{C027E640-DB29-47C5-9037-90873A7E6A2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C027E640-DB29-47C5-9037-90873A7E6A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C027E640-DB29-47C5-9037-90873A7E6A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C027E640-DB29-47C5-9037-90873A7E6A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C027E640-DB29-47C5-9037-90873A7E6A2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
