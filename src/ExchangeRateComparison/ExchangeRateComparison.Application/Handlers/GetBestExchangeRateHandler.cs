@@ -44,16 +44,7 @@ public class GetBestExchangeRateHandler : IGetBestExchangeRateHandler
             throw new ArgumentNullException(nameof(request));
 
         var stopwatch = Stopwatch.StartNew();
-        var processedAt = DateTime.UtcNow;
         var correlationId = Guid.NewGuid().ToString("N")[..8];
-
-        using var scope = _logger.BeginScope(new Dictionary<string, object>
-        {
-            ["CorrelationId"] = correlationId,
-            ["SourceCurrency"] = request.SourceCurrency,
-            ["TargetCurrency"] = request.TargetCurrency,
-            ["Amount"] = request.Amount
-        });
 
         _logger.LogInformation(
             "Starting exchange rate comparison for {ExchangeRequest}",
@@ -64,7 +55,7 @@ public class GetBestExchangeRateHandler : IGetBestExchangeRateHandler
             // Get available providers
             var availableProviders = GetAvailableProviders();
             
-            if (!availableProviders.Any())
+            if (availableProviders.Count == 0)
             {
                 _logger.LogWarning("No exchange rate providers are available");
                 
@@ -76,7 +67,7 @@ public class GetBestExchangeRateHandler : IGetBestExchangeRateHandler
                 stopwatch.Stop();
                 return ExchangeComparisonResult.CreateSuccessful(
                     request, 
-                    Array.Empty<ExchangeRateOffer>(), 
+                    [], 
                     stopwatch.Elapsed);
             }
 

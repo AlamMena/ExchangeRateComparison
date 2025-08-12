@@ -8,21 +8,15 @@ namespace ExchangeRateComparison.Application.Services;
 /// <summary>
 /// Implementation of exchange rate service
 /// </summary>
-public class ExchangeRateService : IExchangeRateService
+public class ExchangeRateService(
+    GetBestExchangeRateHandler handler,
+    IEnumerable<IExchangeRateProvider> providers,
+    ILogger<ExchangeRateService> logger)
+    : IExchangeRateService
 {
-    private readonly GetBestExchangeRateHandler _handler;
-    private readonly IEnumerable<IExchangeRateProvider> _providers;
-    private readonly ILogger<ExchangeRateService> _logger;
-
-    public ExchangeRateService(
-        GetBestExchangeRateHandler handler,
-        IEnumerable<IExchangeRateProvider> providers,
-        ILogger<ExchangeRateService> logger)
-    {
-        _handler = handler ?? throw new ArgumentNullException(nameof(handler));
-        _providers = providers ?? throw new ArgumentNullException(nameof(providers));
-        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-    }
+    private readonly GetBestExchangeRateHandler _handler = handler ?? throw new ArgumentNullException(nameof(handler));
+    private readonly IEnumerable<IExchangeRateProvider> _providers = providers ?? throw new ArgumentNullException(nameof(providers));
+    private readonly ILogger<ExchangeRateService> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
     /// <summary>
     /// Compares exchange rates from multiple providers and returns the best offer
@@ -31,8 +25,7 @@ public class ExchangeRateService : IExchangeRateService
         ExchangeRequest request, 
         CancellationToken cancellationToken = default)
     {
-        if (request == null)
-            throw new ArgumentNullException(nameof(request));
+        ArgumentNullException.ThrowIfNull(request);
 
         _logger.LogDebug(
             "Starting exchange rate comparison service for {Request}",

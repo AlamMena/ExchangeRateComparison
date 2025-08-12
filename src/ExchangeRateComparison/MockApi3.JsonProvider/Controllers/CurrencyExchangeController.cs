@@ -6,19 +6,12 @@ namespace MockApi3.JsonProvider.Controllers;
 [ApiController]
 [Route("currency-exchange")]
 [Tags("Exchange")]
-public class CurrencyExchangeController : ControllerBase
+public class CurrencyExchangeController(ILogger<CurrencyExchangeController> logger) : ControllerBase
 {
-    private readonly ILogger<CurrencyExchangeController> _logger;
-
-    public CurrencyExchangeController(ILogger<CurrencyExchangeController> logger)
-    {
-        _logger = logger;
-    }
-
     /// <summary>
     /// Exchange currency using nested JSON format
     /// </summary>
-    /// <param name="request">Exchange request with nested exchange object</param>
+    /// <param name="request">Exchange request with a nested exchange object</param>
     /// <param name="delay">Optional delay in milliseconds for testing</param>
     /// <param name="fail">Set to true to simulate failure</param>
     /// <returns>Response with status code, message, and data containing total</returns>
@@ -30,19 +23,19 @@ public class CurrencyExchangeController : ControllerBase
     {
         var correlationId = Guid.NewGuid().ToString("N")[..8];
         
-        using var scope = _logger.BeginScope(new Dictionary<string, object>
+        using var scope = logger.BeginScope(new Dictionary<string, object>
         {
             ["CorrelationId"] = correlationId,
             ["Endpoint"] = "/currency-exchange"
         });
 
-        _logger.LogInformation("API3: Processing currency exchange request - {SourceCurrency} to {TargetCurrency}, Quantity: {Quantity}", 
+        logger.LogInformation("API3: Processing currency exchange request - {SourceCurrency} to {TargetCurrency}, Quantity: {Quantity}", 
             request.Exchange?.SourceCurrency, request.Exchange?.TargetCurrency, request.Exchange?.Quantity);
 
         // Validate request
         if (request.Exchange == null)
         {
-            _logger.LogWarning("API3: Missing exchange object in request");
+            logger.LogWarning("API3: Missing exchange object in request");
             
             return Ok(new CurrencyExchangeResponse
             {
@@ -56,7 +49,7 @@ public class CurrencyExchangeController : ControllerBase
             string.IsNullOrWhiteSpace(request.Exchange.TargetCurrency) || 
             request.Exchange.Quantity <= 0)
         {
-            _logger.LogWarning("API3: Invalid exchange values - SourceCurrency: {SourceCurrency}, TargetCurrency: {TargetCurrency}, Quantity: {Quantity}", 
+            logger.LogWarning("API3: Invalid exchange values - SourceCurrency: {SourceCurrency}, TargetCurrency: {TargetCurrency}, Quantity: {Quantity}", 
                 request.Exchange.SourceCurrency, request.Exchange.TargetCurrency, request.Exchange.Quantity);
             
             return Ok(new CurrencyExchangeResponse
@@ -72,7 +65,7 @@ public class CurrencyExchangeController : ControllerBase
         if (unsupportedCurrencies.Contains(request.Exchange.SourceCurrency.ToUpperInvariant()) || 
             unsupportedCurrencies.Contains(request.Exchange.TargetCurrency.ToUpperInvariant()))
         {
-            _logger.LogWarning("API3: Unsupported currency - SourceCurrency: {SourceCurrency}, TargetCurrency: {TargetCurrency}", 
+            logger.LogWarning("API3: Unsupported currency - SourceCurrency: {SourceCurrency}, TargetCurrency: {TargetCurrency}", 
                 request.Exchange.SourceCurrency, request.Exchange.TargetCurrency);
             
             return Ok(new CurrencyExchangeResponse
@@ -88,14 +81,14 @@ public class CurrencyExchangeController : ControllerBase
         
         if (delayMs > 0)
         {
-            _logger.LogDebug("API3: Simulating {Delay}ms processing delay", delayMs);
+            logger.LogDebug("API3: Simulating {Delay}ms processing delay", delayMs);
             await Task.Delay(delayMs);
         }
 
         // Simulate random failures (if requested)
         if (fail)
         {
-            _logger.LogWarning("API3: Simulating random failure");
+            logger.LogWarning("API3: Simulating random failure");
             
             return Ok(new CurrencyExchangeResponse
             {
@@ -116,7 +109,7 @@ public class CurrencyExchangeController : ControllerBase
             Data = new CurrencyExchangeData { Total = total }
         };
         
-        _logger.LogInformation("API3: Returning total {Total:F2} (rate {Rate:F4}) for {SourceCurrency}/{TargetCurrency} in {Delay}ms", 
+        logger.LogInformation("API3: Returning total {Total:F2} (rate {Rate:F4}) for {SourceCurrency}/{TargetCurrency} in {Delay}ms", 
             total, rate, request.Exchange.SourceCurrency, request.Exchange.TargetCurrency, delayMs);
 
         return Ok(response);
@@ -129,7 +122,7 @@ public class CurrencyExchangeController : ControllerBase
     [HttpGet("info")]
     public IActionResult GetInfo()
     {
-        _logger.LogDebug("API3: Info endpoint requested");
+        logger.LogDebug("API3: Info endpoint requested");
         
         return Ok(new
         {

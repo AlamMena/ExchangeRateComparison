@@ -44,7 +44,7 @@ public class ApiProviderSettings
 /// </summary>
 public class Api1Settings
 {
-    public string BaseUrl { get; set; } = "http://localhost:5001";
+    public string BaseUrl { get; set; } = "http://mockapi1-json:8080";
     public string Endpoint { get; set; } = "/exchange";
     public string? ApiKey { get; set; }
     public bool IsEnabled { get; set; } = true;
@@ -70,7 +70,7 @@ public class Api1Settings
 /// </summary>
 public class Api2Settings
 {
-    public string BaseUrl { get; set; } = "http://localhost:5002";
+    public string BaseUrl { get; set; } = "http://mockapi2-xml:8080";
     public string Endpoint { get; set; } = "/convert";
     public string? ApiKey { get; set; }
     public bool IsEnabled { get; set; } = true;
@@ -96,7 +96,7 @@ public class Api2Settings
 /// </summary>
 public class Api3Settings
 {
-    public string BaseUrl { get; set; } = "http://localhost:5003";
+    public string BaseUrl { get; set; } = "http://mockapi3-json:8080";
     public string Endpoint { get; set; } = "/currency-exchange";
     public string? ApiKey { get; set; }
     public bool IsEnabled { get; set; } = true;
