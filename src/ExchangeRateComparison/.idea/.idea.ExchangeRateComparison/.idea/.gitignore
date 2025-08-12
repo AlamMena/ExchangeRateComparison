@@ -1,0 +1,40 @@
+# Build results
+bin/
+obj/
+out/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# VS Code  
+.vscode/
+
+# JetBrains
+.idea/
+
+# .NET
+*.dll
+*.exe
+*.pdb
+
+# Logs
+*.log
+logs/
+
+# Configuration with secrets
+appsettings.Development.json
+appsettings.Local.json
+*.secrets.json
+
+# Docker
+.dockerignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test results
+TestResults/
+coverage/

@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  exchangerate-webapi:
+    build:
+      context: ./ExchangeRateComparison
+      dockerfile: ExchangeRateComparison.WebApi/Dockerfile
+    ports:
+      - "5001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_HTTP_PORTS=8080
+      - MockApi1Url=http://mockapi1-json:8080
+      - MockApi2Url=http://mockapi2-xml:8080
+      - MockApi3Url=http://mockapi3-json:8080
+    depends_on:
+      - mockapi1-json
+      - mockapi2-xml
+      - mockapi3-json
+    networks:
+      - exchange-rate-network
+
+  mockapi1-json:
+    build:
+      context: ./ExchangeRateComparison
+      dockerfile: MockApi1.JsonProvider/Dockerfile
+    ports:
+      - "5002:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_HTTP_PORTS=8080
+      - URLS=http://+:8080
+    networks:
+      - exchange-rate-network
+
+  mockapi2-xml:
+    build:
+      context: ./ExchangeRateComparison
+      dockerfile: MockApi2.XmlProvider/Dockerfile
+    ports:
+      - "5003:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_HTTP_PORTS=8080
+      - URLS=http://+:8080
+    networks:
+      - exchange-rate-network
+
+  mockapi3-json:
+    build:
+      context: ./ExchangeRateComparison
+      dockerfile: MockApi3.JsonProvider/Dockerfile
+    ports:
+      - "5004:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_HTTP_PORTS=8080
+      - URLS=http://+:8080
+    networks:
+      - exchange-rate-network
+
+networks:
+  exchange-rate-network:
+    driver: bridge
+
+volumes:
+  exchange-rate-data:

@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateComparison.Domain", "ExchangeRateComparison.Domain\ExchangeRateComparison.Domain.csproj", "{04A3B2ED-99E2-490C-80E9-64226AEC66C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateComparison.Application", "ExchangeRateComparison.Application\ExchangeRateComparison.Application.csproj", "{9BC0C667-5DE8-4325-B6FA-E08E9E992A7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateComparison.Infrastructure", "ExchangeRateComparison.Infrastructure\ExchangeRateComparison.Infrastructure.csproj", "{A41EF678-015D-4877-8BDE-2B3ECD6AF0BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockApi1.JsonProvider", "MockApi1.JsonProvider\MockApi1.JsonProvider.csproj", "{D59C66BE-5BE6-404C-8394-7273A81252F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockApi2.XmlProvider", "MockApi2.XmlProvider\MockApi2.XmlProvider.csproj", "{C027E640-DB29-47C5-9037-90873A7E6A2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockApi3.JsonProvider", "MockApi3.JsonProvider\MockApi3.JsonProvider.csproj", "{679B72F4-2704-4186-8E33-03D6299BFF4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateComparison.WebApi", "ExchangeRateComparison.WebApi\ExchangeRateComparison.WebApi.csproj", "{2261DDFF-B2B8-499B-8F0A-CFCF400832DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04A3B2ED-99E2-490C-80E9-64226AEC66C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04A3B2ED-99E2-490C-80E9-64226AEC66C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04A3B2ED-99E2-490C-80E9-64226AEC66C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04A3B2ED-99E2-490C-80E9-64226AEC66C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC0C667-5DE8-4325-B6FA-E08E9E992A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC0C667-5DE8-4325-B6FA-E08E9E992A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC0C667-5DE8-4325-B6FA-E08E9E992A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC0C667-5DE8-4325-B6FA-E08E9E992A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A41EF678-015D-4877-8BDE-2B3ECD6AF0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A41EF678-015D-4877-8BDE-2B3ECD6AF0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A41EF678-015D-4877-8BDE-2B3ECD6AF0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A41EF678-015D-4877-8BDE-2B3ECD6AF0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D59C66BE-5BE6-404C-8394-7273A81252F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C027E640-DB29-47C5-9037-90873A7E6A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C027E640-DB29-47C5-9037-90873A7E6A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C027E640-DB29-47C5-9037-90873A7E6A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C027E640-DB29-47C5-9037-90873A7E6A2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{679B72F4-2704-4186-8E33-03D6299BFF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{679B72F4-2704-4186-8E33-03D6299BFF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{679B72F4-2704-4186-8E33-03D6299BFF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{679B72F4-2704-4186-8E33-03D6299BFF4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2261DDFF-B2B8-499B-8F0A-CFCF400832DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2261DDFF-B2B8-499B-8F0A-CFCF400832DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2261DDFF-B2B8-499B-8F0A-CFCF400832DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2261DDFF-B2B8-499B-8F0A-CFCF400832DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
